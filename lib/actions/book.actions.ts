@@ -97,16 +97,16 @@ export const createBook = async (data: CreateBook) => {
 
         const bookCount = await Book.countDocuments({ clerkId: userId });
 
-        if (bookCount >= limits.maxBooks) {
-            const { revalidatePath } = await import("next/cache");
-            revalidatePath("/");
+        // if (bookCount >= limits.maxBooks) {
+        //     const { revalidatePath } = await import("next/cache");
+        //     revalidatePath("/");
 
-            return {
-                success: false,
-                error: `You have reached the maximum number of books allowed for your ${plan} plan (${limits.maxBooks}). Please upgrade to add more books.`,
-                isBillingError: true,
-            };
-        }
+        //     return {
+        //         success: false,
+        //         error: `You have reached the maximum number of books allowed for your ${plan} plan (${limits.maxBooks}). Please upgrade to add more books.`,
+        //         isBillingError: true,
+        //     };
+        // }
 
         const book = await Book.create({...data, clerkId: userId, slug, totalSegments: 0});
 
