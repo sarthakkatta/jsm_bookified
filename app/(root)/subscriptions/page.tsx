@@ -1,5 +1,3 @@
-import { PricingTable } from "@clerk/nextjs";
-
 export default function SubscriptionsPage() {
   return (
     <div className="container wrapper py-10">
@@ -11,7 +9,6 @@ export default function SubscriptionsPage() {
       </div>
 
       <div className="clerk-pricing-container">
-        <PricingTable />
       </div>
     </div>
   );
